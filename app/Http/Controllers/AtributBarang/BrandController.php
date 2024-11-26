@@ -11,6 +11,7 @@ class BrandController extends Controller
 {
     public function index()
     {
+        
         $datas = Brand::all();
         return view('pages.atributBarang.brand.index', compact('datas'));
     }
@@ -24,6 +25,7 @@ class BrandController extends Controller
         }
 
         return view('pages.atributBarang.brand.form', compact('data'));
+        
     }
 
     public function store($id = null)
@@ -44,6 +46,7 @@ class BrandController extends Controller
             }
 
             return redirect()->route('merek.index');
+            
         } catch (\Throwable $th) {
             Log::error($th->getMessage());
             Alert::error('Gagal', $th->getMessage());
@@ -57,5 +60,11 @@ class BrandController extends Controller
         $data->delete();
         Alert::success('Berhasil', 'Data Merek Berhasil Dihapus');
         return redirect()->back();
+        $datas = Brand::with('brand')->get();
+        foreach ($datas as $data) {
+        $data->brand_name = $data->brand->name ?? '-';
+        
+}
     }
+    
 }

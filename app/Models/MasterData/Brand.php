@@ -10,4 +10,7 @@ class Brand extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+    protected $rules = [
+        'brand_id' => 'required|exists:brands,id',
+    ];
 }

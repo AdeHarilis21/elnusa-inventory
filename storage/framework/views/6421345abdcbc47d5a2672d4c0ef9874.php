@@ -68,7 +68,7 @@
                                     <td><?php echo e($item->project->name); ?></td>
                                     <td><?php echo e($item->stock); ?></td>
                                     <td><?php echo e($item->unit->name); ?></td>
-                                    <td><?php echo e($item->brand->name); ?></td>
+                                    <td><?php echo e($item->brand ? $item->brand->name : '-'); ?></td>
                                     <td><?php echo e($item->minimal_stock); ?></td>
                                     <td><?php echo e($item->po_number); ?></td>
                                     <td><?php echo e($item->location); ?></td>

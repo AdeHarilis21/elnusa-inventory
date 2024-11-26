@@ -69,7 +69,7 @@
                                     <td>{{ $item->project->name }}</td>
                                     <td>{{ $item->stock }}</td>
                                     <td>{{ $item->unit->name }}</td>
-                                    <td>{{ $item->brand->name }}</td>
+                                    <td>{{ $item->brand ? $item->brand->name : '-' }}</td>
                                     <td>{{ $item->minimal_stock }}</td>
                                     <td>{{ $item->po_number }}</td>
                                     <td>{{ $item->location }}</td>

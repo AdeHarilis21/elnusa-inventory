@@ -72,11 +72,11 @@
                     <div class="col-md-6">
                         <label class="form-label">Merek</label>
                         <select name="brand_id" class="form-control" required>
-                            @if ($data)
-                                <option value="{{ $data->brand_id }}" selected>{{ $data->brand->name }}</option>
-                            @else
-                                <option value="" disabled selected>Pilih</option>
-                            @endif
+                        @if ($data && $data->brand)
+                            <option value="{{ $data->brand_id }}" selected>{{ $data->brand->name }}</option>
+                        @else
+                            <option value="" disabled selected> </option>
+                        @endif
                             @foreach ($brand as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach

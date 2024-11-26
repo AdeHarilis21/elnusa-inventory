@@ -71,11 +71,11 @@
                     <div class="col-md-6">
                         <label class="form-label">Merek</label>
                         <select name="brand_id" class="form-control" required>
-                            <?php if($data): ?>
-                                <option value="<?php echo e($data->brand_id); ?>" selected><?php echo e($data->brand->name); ?></option>
-                            <?php else: ?>
-                                <option value="" disabled selected>Pilih</option>
-                            <?php endif; ?>
+                        <?php if($data && $data->brand): ?>
+                            <option value="<?php echo e($data->brand_id); ?>" selected><?php echo e($data->brand->name); ?></option>
+                        <?php else: ?>
+                            <option value="" disabled selected> </option>
+                        <?php endif; ?>
                             <?php $__currentLoopData = $brand; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
