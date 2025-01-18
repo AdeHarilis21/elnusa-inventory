@@ -71,8 +71,8 @@
                                 <tr>
                                     <td><?php echo e($item->stock->bill_no); ?></td>
                                     <td><?php echo e($item->stock->do_number); ?></td>
-                                    <td><?php echo e($item->barang->code); ?></td>
-                                    <td><?php echo e($item->barang->name); ?></td>
+                                    <td><?php echo e($item->barang ? $item->barang->code : 'null'); ?></td>
+                                    <td><?php echo e($item->barang ? $item->barang->name : 'null'); ?></td>
                                     <td class="text-center"><?php echo e($item->qty); ?></td>
                                     <td><?php echo e($item->stock->customer->name); ?></td>
                                     <td><?php echo e($item->remarks); ?></td>

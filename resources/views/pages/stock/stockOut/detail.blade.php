@@ -39,8 +39,8 @@
                                     @foreach ($data->detail as $key => $item)
                                         <tr>
                                             <td>{{ $data->bill_no }}</td>
-                                            <td>{{ $item->barang->code }}</td>
-                                            <td>{{ $item->barang->name }}</td>
+                                            <td>{{ $item->barang ? $item->barang->code : 'null' }}</td>
+                                            <td>{{ $item->barang ? $item->barang->name : 'null' }}</td>
                                             <td>{{ $data->customer->name }}</td>
                                             <td class="text-center">{{ $item->qty }}</td>
                                             <td>{{ $item->remarks }}</td>

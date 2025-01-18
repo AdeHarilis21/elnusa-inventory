@@ -71,8 +71,8 @@
                                 <tr>
                                     <td>{{ $item->stock->bill_no }}</td>
                                     <td>{{ $item->stock->do_number }}</td>
-                                    <td>{{ $item->barang->code }}</td>
-                                    <td>{{ $item->barang->name }}</td>
+                                    <td>{{ $item->barang ? $item->barang->code : 'null' }}</td>
+                                    <td>{{ $item->barang ? $item->barang->name : 'null' }}</td>
                                     <td class="text-center">{{ $item->qty }}</td>
                                     <td>{{ $item->stock->customer->name }}</td>
                                     <td>{{ $item->remarks }}</td>

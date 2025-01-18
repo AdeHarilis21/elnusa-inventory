@@ -94,4 +94,20 @@ class BarangController extends Controller
         Alert::success('Berhasil', 'Data Barang Berhasil Diubah');
         return redirect()->back();
     }
+        public function destroy($id)
+    {
+        try {
+            // Cari barang berdasarkan ID
+            $barang = Barang::findOrFail($id);
+
+            // Hapus barang
+            $barang->delete();
+
+            // Redirect kembali dengan pesan sukses
+            return redirect()->route('barang.index')->with('success', 'Barang berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Tangani error jika ada
+            return redirect()->route('barang.index')->with('error', 'Terjadi kesalahan saat menghapus barang.');
+        }
+    }
 }

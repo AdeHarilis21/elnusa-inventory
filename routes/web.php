@@ -115,6 +115,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/barang/form', [BarangController::class, 'store'])->name('barang.add');
     Route::post('/barang/form/{id}', [BarangController::class, 'store'])->name('barang.update');
     Route::post('/barang/visible/{id}', [BarangController::class, 'visible'])->name('barang.visible');
+    Route::delete('/barang/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
 
     Route::prefix('/stok')->group(function () {
         /*

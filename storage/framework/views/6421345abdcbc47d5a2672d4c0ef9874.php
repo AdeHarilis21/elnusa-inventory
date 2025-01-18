@@ -46,18 +46,14 @@
                                 <tr>
                                     <td class="text-center">
                                         <?php if(Auth::user()->roles_label[0] == 'SuperAdmin'): ?>
-                                            <form action="<?php echo e(route('barang.visible', $item->id)); ?>" method="post">
+                                            <form action="<?php echo e(route('barang.destroy', $item->id)); ?>" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">
                                                 <?php echo csrf_field(); ?>
-                                                <a href="<?php echo e(route('barang.edit', $item->id)); ?>"
-                                                    class="btn btn-sm btn-outline-info">
+                                                <?php echo method_field('DELETE'); ?>
+                                                <a href="<?php echo e(route('barang.edit', $item->id)); ?>" class="btn btn-sm btn-outline-info">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
-                                                <button type="submit" class="btn btn-sm btn-outline-success">
-                                                    <?php if($item->is_visible == true): ?>
-                                                        <i class="bi bi-eye"></i> Terlihat
-                                                    <?php else: ?>
-                                                        <i class="bi bi-eye-slash"></i> Tidak Terlihat
-                                                    <?php endif; ?>
+                                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i> Hapus
                                                 </button>
                                             </form>
                                         <?php endif; ?>
